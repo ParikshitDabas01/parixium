@@ -38,30 +38,44 @@
     color: #00fff7;
   }
 
-  /* Hero Section */
-  .hero {
+  /* Hero Section with Canvas for particles */
+  #hero {
+    position: relative;
+    overflow: hidden;
+  }
+  #particle-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 350px;
+    z-index: 0;
+    display: block;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 350px;
-    background: linear-gradient(135deg, #00adb5 0%, #005f6b 100%);
     text-align: center;
     padding: 0 20px;
+    background: rgba(18, 18, 18, 0.8);
+
   }
-  .hero h2 {
+  .hero-content h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     margin-bottom: 15px;
     color: white;
     letter-spacing: 2px;
   }
-  .hero p {
+  .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 25px;
     color: #d0f4f7cc;
   }
-  .hero button {
+  .hero-content button {
     background-color: #ffffff;
     border: none;
     color: #00adb5;
@@ -73,7 +87,7 @@
     transition: background-color 0.3s ease;
     box-shadow: 0 6px 12px rgba(0,173,181,0.5);
   }
-  .hero button:hover {
+  .hero-content button:hover {
     background-color: #00adb5;
     color: white;
     box-shadow: 0 8px 16px rgba(0,173,181,0.9);
@@ -146,12 +160,15 @@
       margin-left: 0;
       margin-right: 20px;
     }
-    .hero h2 {
+    .hero-content h2 {
       font-size: 2.2rem;
     }
-    .hero {
-      height: auto;
-      padding: 60px 20px;
+    #particle-canvas {
+      height: 300px;
+    }
+    .hero-content {
+      height: 300px;
+      padding: 40px 20px;
     }
   }
 </style>
@@ -166,11 +183,14 @@
   </nav>
 </header>
 
-<!-- Hero Section -->
-<section class="hero">
-  <h2>Welcome to Parixium</h2>
-  <p>Your ultimate destination for modern and immersive gaming experiences.</p>
-  <button onclick="document.getElementById('games').scrollIntoView({ behavior: 'smooth' });">Explore Games</button>
+<!-- Hero Section with Particle Animation -->
+<section class="hero" id="hero">
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-content">
+    <h2>Welcome to Parixium</h2>
+    <p>Your ultimate destination for modern and immersive gaming experiences.</p>
+    <button onclick="document.getElementById('games').scrollIntoView({ behavior: 'smooth' });">Explore Games</button>
+  </div>
 </section>
 
 <main>
@@ -216,5 +236,71 @@
 <footer>
   &copy; 2025 Parixium. All rights reserved.
 </footer>
+
+<script>
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let particlesArray;
+
+  // Set canvas size
+  function initCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = 350; // match hero height
+  }
+  window.addEventListener('resize', () => {
+    initCanvas();
+  });
+
+  // Particle class
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 3 + 1;
+      this.speedX = (Math.random() - 0.5) * 1;
+      this.speedY = (Math.random() - 0.5) * 1;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      // Wrap particles around edges
+      if (this.x > canvas.width) this.x = 0;
+      if (this.x < 0) this.x = canvas.width;
+      if (this.y > canvas.height) this.y = 0;
+      if (this.y < 0) this.y = canvas.height;
+    }
+    draw() {
+      ctx.fillStyle = 'rgba(255,255,255,0.3)';
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // Initialize particles
+  function initParticles() {
+    particlesArray = [];
+    const numberOfParticles = 60;
+    for (let i = 0; i < numberOfParticles; i++) {
+      particlesArray.push(new Particle());
+    }
+  }
+
+  // Animate particles
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particlesArray.forEach(particle => {
+      particle.update();
+      particle.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  // Initialize everything
+  initCanvas();
+  initParticles();
+  animate();
+</script>
 </body>
 </html>

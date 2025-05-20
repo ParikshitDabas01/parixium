@@ -1,0 +1,4 @@
+command 1 to update domain 
+git add .
+git commit -m "Update homepage with Parixium"
+git push origin main
