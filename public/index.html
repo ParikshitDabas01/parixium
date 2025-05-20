@@ -1,250 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Parixium</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <style>
-      #particles-js {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background: #121212;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parixium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    #particles-js {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: #121212;
+    }
 
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: "Orbitron", sans-serif;
-        background-color: transparent;
-        color: #fff;
-      }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: transparent;
+      color: #fff;
+    }
 
-      .hero {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 100vh;
-        text-align: center;
-        background: linear-gradient(
-          to bottom,
-          transparent,
-          rgba(18, 18, 18, 0.9)
-        );
-        padding: 20px;
-        box-sizing: border-box;
-      }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+      background: linear-gradient(to bottom, transparent, rgba(18,18,18,0.9));
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-      .typewriter {
-        font-size: 3rem;
-        font-family: "Orbitron", sans-serif; /* or whatever font you like */
-        color: #fff;
-        white-space: nowrap;
-      }
+    /* Smooth typing effect - no width/overflow animation */
+    #typewriter {
+      font-size: 3rem;
+      color: #fff;
+      border-right: 2px solid #00adb5;
+      white-space: nowrap;
+      margin: auto;
+      overflow: visible;
+      letter-spacing: 0.05em;
+    }
 
-      .tagline {
-        color: #00adb5;
-        font-size: 1.25rem;
-        margin-top: 10px;
-        font-weight: 500;
-        letter-spacing: 1.2px;
-      }
+    .tagline {
+      color: #00adb5;
+      font-size: 1.25rem;
+      margin-top: 10px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+    }
 
-      .intro {
-        margin-top: 20px;
-        color: #ccc;
-        font-size: 1rem;
-        max-width: 600px;
-        text-align: center;
-        font-weight: 400;
-      }
+    .intro {
+      margin-top: 20px;
+      color: #ccc;
+      font-size: 1rem;
+      max-width: 600px;
+      text-align: center;
+      font-weight: 400;
+    }
 
-      .hero button {
-        margin-top: 30px;
-        padding: 12px 36px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        letter-spacing: 1px;
-        font-family: "Orbitron", sans-serif;
-        background: transparent;
-        color: #00adb5;
-        border: 2px solid #00adb5;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: all 0.4s ease;
-        backdrop-filter: blur(4px);
-        box-shadow: 0 0 0 transparent;
-      }
+    /* Button styling: kept minimal, you mentioned you fixed it */
+    .hero button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      background-color: transparent;
+      color: #00adb5;
+      border: 2px solid #00adb5;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-      .hero button:hover {
-        background-color: rgba(0, 173, 181, 0.1);
-        color: #00fff5;
-        border-color: #00fff5;
-        box-shadow: 0 0 12px rgba(0, 255, 245, 0.3);
-        transform: translateY(-2px);
-      }
+    .hero button:hover {
+      background-color: #00adb5;
+      color: #121212;
+    }
 
-      .game-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 40px;
-        max-width: 1200px;
-        margin: auto;
-      }
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-      .card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 20px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-        color: #fff;
-      }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      color: #fff;
+    }
 
-      .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(0, 173, 181, 0.6);
-        z-index: 1;
-      }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 173, 181, 0.6);
+      z-index: 1;
+    }
 
-      .floating-icon {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        font-size: 2rem;
-        animation: float 3s ease-in-out infinite;
-        color: #00adb5;
-        text-shadow: 0 0 10px #00adb5;
-        z-index: 1000;
-      }
+    .floating-icon {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      font-size: 2rem;
+      animation: float 3s ease-in-out infinite;
+      color: #00adb5;
+      text-shadow: 0 0 10px #00adb5;
+      z-index: 1000;
+    }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <section class="hero">
+    <h1 id="typewriter"></h1>
+    <p class="tagline">Innovative Web &amp; Tech Solutions by Parikshit.</p>
+    <button>Hire Me</button>
+    <p class="intro">I help startups, creators, and businesses build fast, beautiful, and scalable tech solutions. Web development, branding, design — let's create something epic.</p>
+  </section>
+
+  <section class="game-grid">
+    <div class="card">
+      <h3>Website Development</h3>
+      <p>Modern, responsive, blazing-fast sites built with precision and style.</p>
+    </div>
+    <div class="card">
+      <h3>UI/UX &amp; Branding</h3>
+      <p>Sleek designs that match your vision and convert your audience.</p>
+    </div>
+    <div class="card">
+      <h3>Custom Tech Solutions</h3>
+      <p>From MVPs to full-stack apps — I craft smart solutions tailored to you.</p>
+    </div>
+  </section>
+
+  <div class="floating-icon">🚀</div>
+
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80 },
+        color: { value: '#00adb5' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#00adb5',
+          opacity: 0.4,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { particles_nb: 4 }
         }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
+      },
+      retina_detect: true
+    });
 
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="particles-js"></div>
+    // Smooth JS typewriter effect with blinking cursor
+    const text = "Welcome to Parixium";
+    const element = document.getElementById('typewriter');
+    let index = 0;
 
-    <section class="hero">
-      <h1 class="typewriter"></h1>
-
-      <script>
-        const typewriterElement = document.querySelector(".typewriter");
-        const text = "Welcome to Parixium";
-        const cursorChar = "|";
-        let index = 0;
-
-        function type() {
-          if (index <= text.length) {
-            typewriterElement.textContent =
-              text.substring(0, index) + cursorChar;
-            index++;
-            setTimeout(type, 120); // typing speed in ms
+    function type() {
+      if (index <= text.length) {
+        element.textContent = text.substring(0, index);
+        index++;
+        setTimeout(type, 150); // typing speed in ms
+      } else {
+        // Blink cursor after typing
+        setInterval(() => {
+          if (element.style.borderRight === '2px solid transparent') {
+            element.style.borderRight = '2px solid #00adb5';
           } else {
-            // After typing finished, blink cursor
-            blinkCursor();
+            element.style.borderRight = '2px solid transparent';
           }
-        }
+        }, 500);
+      }
+    }
 
-        let cursorVisible = true;
-        function blinkCursor() {
-          setInterval(() => {
-            if (cursorVisible) {
-              typewriterElement.textContent = text;
-              cursorVisible = false;
-            } else {
-              typewriterElement.textContent = text + cursorChar;
-              cursorVisible = true;
-            }
-          }, 500);
-        }
+    type();
+  </script>
 
-        type();
-      </script>
-
-      <p class="tagline">Innovative Web & Tech Solutions by Parikshit.</p>
-      <button>Hire Me</button>
-      <p class="intro">
-        I help startups, creators, and businesses build fast, beautiful, and
-        scalable tech solutions. Web development, branding, design — let's
-        create something epic.
-      </p>
-    </section>
-
-    <section class="game-grid">
-      <div class="card">
-        <h3>Website Development</h3>
-        <p>
-          Modern, responsive, blazing-fast sites built with precision and style.
-        </p>
-      </div>
-      <div class="card">
-        <h3>UI/UX & Branding</h3>
-        <p>Sleek designs that match your vision and convert your audience.</p>
-      </div>
-      <div class="card">
-        <h3>Custom Tech Solutions</h3>
-        <p>
-          From MVPs to full-stack apps — I craft smart solutions tailored to
-          you.
-        </p>
-      </div>
-    </section>
-
-    <div class="floating-icon">🚀</div>
-
-    <script>
-      particlesJS("particles-js", {
-        particles: {
-          number: { value: 80 },
-          color: { value: "#00adb5" },
-          shape: { type: "circle" },
-          opacity: { value: 0.5 },
-          size: { value: 3 },
-          line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#00adb5",
-            opacity: 0.4,
-            width: 1,
-          },
-          move: { enable: true, speed: 2 },
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "repulse" },
-            onclick: { enable: true, mode: "push" },
-          },
-          modes: {
-            repulse: { distance: 100 },
-            push: { particles_nb: 4 },
-          },
-        },
-        retina_detect: true,
-      });
-    </script>
-  </body>
+</body>
 </html>
