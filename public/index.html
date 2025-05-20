@@ -65,21 +65,29 @@
 
     /* Button styling: kept minimal, you mentioned you fixed it */
     .hero button {
-      margin-top: 30px;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      background-color: transparent;
-      color: #00adb5;
-      border: 2px solid #00adb5;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+  margin-top: 30px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: 'Orbitron', sans-serif;
+  background: transparent;
+  color: #00adb5;
+  border: 2px solid #00adb5;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 0 transparent;
+}
 
-    .hero button:hover {
-      background-color: #00adb5;
-      color: #121212;
-    }
+.hero button:hover {
+  background-color: rgba(0, 173, 181, 0.1);
+  color: #00fff5;
+  border-color: #00fff5;
+  box-shadow: 0 0 12px rgba(0, 255, 245, 0.3);
+  transform: translateY(-2px);
+}
 
     .game-grid {
       display: grid;
