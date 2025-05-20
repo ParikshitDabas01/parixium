@@ -6,15 +6,6 @@
   <title>Parixium</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-  function isMobile() {
-    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  }
-
-  if (isMobile()) {
-    window.location.href = "mobile.html";
-  }
-</script>
   <style>
     #particles-js {
       position: fixed;
