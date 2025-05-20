@@ -2,32 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Parixium</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      font-family: 'Orbitron', sans-serif;
-      background-color: #121212;
-      color: #fff;
-    }
-
+    /* Particles background */
     #particles-js {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       z-index: -1;
+      background: #121212;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: transparent; /* transparent because particles.js sets background */
+      color: #fff;
     }
 
     .hero {
@@ -37,8 +30,9 @@
       flex-direction: column;
       height: 100vh;
       text-align: center;
-      background: linear-gradient(to bottom, #121212, #0f0f0f);
+      background: linear-gradient(to bottom, transparent, rgba(18,18,18,0.9));
       padding: 20px;
+      box-sizing: border-box;
     }
 
     .typewriter {
@@ -112,10 +106,11 @@
       padding: 20px;
       border-radius: 20px;
       transition: all 0.3s ease;
+      color: #fff;
     }
 
     .card:hover {
-      transform: scale(1.05) rotate(1deg);
+      transform: scale(1.05);
       box-shadow: 0 0 20px rgba(0, 173, 181, 0.6);
       z-index: 1;
     }
@@ -143,67 +138,64 @@
 </head>
 <body>
 
-<div id="particles-js"></div>
+  <div id="particles-js"></div>
 
-<section class="hero">
-  <h1 class="typewriter">Welcome to Parixium</h1>
-  <p class="tagline">Your ultimate gateway to epic gaming adventures.</p>
-  <button onclick="document.getElementById('games').scrollIntoView({ behavior: 'smooth' })">Browse Library</button>
-  <p class="intro">Discover the latest and greatest games, handpicked for your next favorite play.</p>
-</section>
+  <section class="hero">
+    <h1 class="typewriter">Welcome to Parixium</h1>
+    <p class="tagline">Your ultimate gateway to epic gaming adventures.</p>
+    <button>Explore Games</button>
+    <p class="intro">Discover the latest and greatest games, handpicked for your next favorite play.</p>
+  </section>
 
-<section class="game-grid" id="games">
-  <div class="card">
-    <h3>Cyber Rush</h3>
-    <p>Fast-paced action platformer with neon vibes.</p>
-  </div>
-  <div class="card">
-    <h3>Pixel Brawl</h3>
-    <p>Retro-style fighter with multiplayer chaos.</p>
-  </div>
-  <div class="card">
-    <h3>Alien Drive</h3>
-    <p>Space shooter adventure with custom ships.</p>
-  </div>
-  <!-- Add more cards as needed -->
-</section>
+  <section class="game-grid">
+    <div class="card">
+      <h3>Cyber Rush</h3>
+      <p>Fast-paced action platformer with neon vibes.</p>
+    </div>
+    <div class="card">
+      <h3>Pixel Brawl</h3>
+      <p>Retro-style fighter with multiplayer chaos.</p>
+    </div>
+    <div class="card">
+      <h3>Alien Drive</h3>
+      <p>Space shooter adventure with custom ships.</p>
+    </div>
+    <!-- Add more game cards here -->
+  </section>
 
-<div class="floating-icon">🎮</div>
+  <div class="floating-icon">🎮</div>
 
-<script>
-  particlesJS('particles-js', {
-    "particles": {
-      "number": { "value": 80 },
-      "color": { "value": "#00adb5" },
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.5 },
-      "size": { "value": 3 },
-      "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#00adb5",
-        "opacity": 0.4,
-        "width": 1
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80 },
+        color: { value: '#00adb5' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#00adb5',
+          opacity: 0.4,
+          width: 1
+        },
+        move: { enable: true, speed: 2 }
       },
-      "move": {
-        "enable": true,
-        "speed": 2
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": { "enable": true, "mode": "repulse" },
-        "onclick": { "enable": true, "mode": "push" }
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' }
+        },
+        modes: {
+          repulse: { distance: 100 },
+          push: { particles_nb: 4 }
+        }
       },
-      "modes": {
-        "repulse": { "distance": 100 },
-        "push": { "particles_nb": 4 }
-      }
-    },
-    "retina_detect": true
-  });
-</script>
+      retina_detect: true
+    });
+  </script>
 
 </body>
 </html>
