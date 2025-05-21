@@ -2,43 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parixium - Mobile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parixium Mobile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <style>
-    body {
+    * {
       margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #00adb5;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    html, body {
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+   body {
+  background: linear-gradient(-45deg, #000000, #1a1a1a, #333333, #121212);
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+}
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
     h1 {
       font-size: 2rem;
-      margin-top: 50px;
+      color: #00adb5;
+      margin-bottom: 15px;
     }
-    p {
-      font-size: 1.2rem;
-      margin-top: 20px;
-    }
-    button {
-      margin-top: 30px;
-      padding: 12px 24px;
+
+    .tagline {
       font-size: 1rem;
-      color: #121212;
-      background-color: #00adb5;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      color: #ccc;
+      margin-bottom: 25px;
+      line-height: 1.4;
     }
-    button:hover {
-      background-color: #008b91;
+
+    .cta {
+      margin-top: 20px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #00adb5;
+      background: transparent;
+      border: 2px solid #00adb5;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .cta:active {
+      transform: scale(0.97);
+      box-shadow: 0 0 12px rgba(0, 255, 245, 0.3);
+      border-color: #00fff5;
+      color: #00fff5;
+    }
+
+    .note {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #888;
+      max-width: 300px;
+    }
+
+    /* Services Section */
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:active {
+      transform: scale(0.97);
+      box-shadow: 0 0 15px rgba(0, 173, 181, 0.4);
+    }
+
+    .card h3 {
+      color: #00adb5;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.4;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Parixium (Mobile)</h1>
-  <p>This is a basic mobile version for testing redirect.</p>
-  <button onclick="window.location.href='index.html'">Go to Desktop Site</button>
+
+  <div class="container">
+    <h1>Welcome to Parixium</h1>
+    <p class="tagline">
+      Helping startups, creators, and businesses<br>
+      build fast, beautiful, and scalable tech.<br><br>
+      Web development, branding, design —<br>
+      let's create something epic.
+    </p>
+    <button class="cta">Hire Me</button>
+    <p class="note">
+      For the full interactive experience, we recommend visiting this site on a desktop browser.
+    </p>
+  </div>
+
+  <div class="services">
+    <div class="card">
+      <h3>Website Development</h3>
+      <p>Modern, responsive, blazing-fast sites built with precision and style.</p>
+    </div>
+    <div class="card">
+      <h3>UI/UX &amp; Branding</h3>
+      <p>Sleek designs that match your vision and convert your audience.</p>
+    </div>
+    <div class="card">
+      <h3>Custom Tech Solutions</h3>
+      <p>From MVPs to full-stack apps — I craft smart solutions tailored to you.</p>
+    </div>
+  </div>
+
 </body>
 </html>
