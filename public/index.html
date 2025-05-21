@@ -14,7 +14,7 @@
   if (isMobile()) {
     window.location.href = "mobile.html";
   }
-</script>
+  </script>
   <style>
     #particles-js {
       position: fixed;
@@ -72,31 +72,35 @@
       font-weight: 400;
     }
 
-    /* Button styling: kept minimal, you mentioned you fixed it */
-    .hero button {
-  margin-top: 30px;
-  padding: 12px 36px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-family: 'Orbitron', sans-serif;
-  background: transparent;
-  color: #00adb5;
-  border: 2px solid #00adb5;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 0 transparent;
-}
+    /* Styled anchor as button */
+    a.cta {
+      margin-top: 30px;
+      padding: 12px 36px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-family: 'Orbitron', sans-serif;
+      background: transparent;
+      color: #00adb5;
+      border: 2px solid #00adb5;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 0 transparent;
+      text-decoration: none;
+      display: inline-block;
+      user-select: none;
+    }
 
-.hero button:hover {
-  background-color: rgba(0, 173, 181, 0.1);
-  color: #00fff5;
-  border-color: #00fff5;
-  box-shadow: 0 0 12px rgba(0, 255, 245, 0.3);
-  transform: translateY(-2px);
-}
+    a.cta:hover,
+    a.cta:focus {
+      background-color: rgba(0, 173, 181, 0.1);
+      color: #00fff5;
+      border-color: #00fff5;
+      box-shadow: 0 0 12px rgba(0, 255, 245, 0.3);
+      transform: translateY(-2px);
+    }
 
     .game-grid {
       display: grid;
@@ -151,7 +155,7 @@
   <section class="hero">
     <h1 id="typewriter"></h1>
     <p class="tagline">Innovative Web &amp; Tech Solutions by Parikshit.</p>
-    <button>Contact us </button>
+    <a href="contact.html" class="cta">Contact us</a>
     <p class="intro">I help startups, creators, and businesses build fast, beautiful, and scalable tech solutions. Web development, branding, design — let's create something epic.</p>
   </section>
 
