@@ -3,99 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - Parixium</title>
+  <title>Contact Parixium</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      overflow: hidden;
     }
 
-    form {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 173, 181, 0.8);
+    .container {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid #00adb5;
+      box-shadow: 0 0 25px #00adb5;
+      padding: 30px 40px;
+      border-radius: 16px;
       width: 90%;
-      max-width: 400px;
+      max-width: 450px;
+      position: relative;
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #00ffcc;
+      text-shadow: 0 0 8px #00adb5;
     }
 
     label {
+      margin-top: 12px;
       display: block;
-      margin-top: 15px;
       font-size: 14px;
+      color: #cfffff;
     }
 
     input, textarea {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       margin-top: 5px;
-      border: none;
+      border: 1px solid #00adb5;
       border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
       color: white;
       font-family: inherit;
+      transition: 0.3s ease;
     }
 
-    input::placeholder, textarea::placeholder {
-      color: #aaa;
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px #00adb5;
+      border-color: #00ffcc;
     }
 
     button {
+      width: 100%;
       margin-top: 20px;
-      padding: 10px 15px;
-      background-color: #00adb5;
+      padding: 12px;
       border: none;
-      border-radius: 8px;
+      background: #00adb5;
       color: white;
       font-size: 16px;
-      width: 100%;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-family: inherit;
+      transition: 0.3s ease;
     }
 
     button:hover {
-      background-color: #019ba2;
+      background: #019ba2;
+      box-shadow: 0 0 15px #00ffcc;
     }
 
     .confirmation {
       margin-top: 20px;
       color: #00ffcc;
-      font-size: 14px;
       text-align: center;
+      font-size: 14px;
+    }
+
+    /* Glow animation background */
+    .bg-glow {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, #00adb5 0%, transparent 60%);
+      animation: pulse 5s infinite;
+      opacity: 0.1;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.2;
+      }
     }
   </style>
 </head>
 <body>
 
-  <form action="https://formspree.io/f/mzzvrrje" method="POST">
-    <h2 style="text-align: center;">Contact Parixium</h2>
+  <div class="container">
+    <div class="bg-glow"></div>
+    <h2>Contact Parixium</h2>
 
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required placeholder="Your full name" />
+    <form action="https://formspree.io/f/mzzvrrje" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="_replyto" required placeholder="your@email.com" />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" placeholder="you@example.com" required>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" required placeholder="What can we do for you?" rows="5"></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="How can we help you?" rows="5" required></textarea>
 
-    <button type="submit">Send Transmission</button>
-  </form>
+      <button type="submit">Send Transmission</button>
+    </form>
+  </div>
 
   <script>
     if (window.location.search.includes('success=1')) {
-      const confirmation = document.createElement('p');
-      confirmation.className = 'confirmation';
-      confirmation.innerText = 'Transmission sent successfully 🚀';
-      document.body.appendChild(confirmation);
+      const conf = document.createElement("p");
+      conf.className = "confirmation";
+      conf.innerText = "Transmission sent successfully 🚀";
+      document.querySelector(".container").appendChild(conf);
     }
   </script>
 
