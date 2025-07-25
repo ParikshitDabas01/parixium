@@ -34,6 +34,23 @@ app.get('/games', (req, res) => {
   res.json(games);
 });
 
+// Endpoint to handle contact form submissions
+app.post('/contact', express.json(), (req, res) => {
+  const { name, email, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res.status(400).send('Missing required fields');
+  }
+
+  // Log the submission to the console
+  console.log(`New contact form submission:
+    Name: ${name}
+    Email: ${email}
+    Message: ${message}`);
+
+  res.status(200).send('Form submitted successfully');
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
