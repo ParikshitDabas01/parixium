@@ -145,13 +145,13 @@
       <h1>Let's Connect</h1>
       <form id="contactForm" action="https://formspree.io/f/mzzvrrje" method="POST" enctype="application/json">
         <label for="name">Name</label>
-        <input type="text" id="name" required placeholder="Your full name" />
+        <input type="text" id="name" name="name" required placeholder="Your full name" />
 
         <label for="email">Email</label>
-        <input type="email" id="email" required placeholder="your@email.com" />
+        <input type="email" id="email" name="email" required placeholder="your@email.com" />
 
         <label for="message">Message</label>
-        <textarea id="message" required placeholder="What can we do for you?"></textarea>
+        <textarea id="message" name="message" required placeholder="What can we do for you?"></textarea>
 
         <button type="submit">Send Transmission</button>
         <p class="confirmation" id="confirmation">Transmission sent successfully 🚀</p>
